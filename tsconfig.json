@@ -8,7 +8,8 @@
     "target": "ES2023",
     "strict": true,
     "esModuleInterop": true,
-    "types": ["node"]
+    "types": ["node"],
+    "allowImportingTsExtensions": false
   },
   "include": ["src", "prisma/prisma.config.ts"]
 }
