@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RsvpService } from "../services/rsvpService";
+import { RsvpService } from "../services/rsvpService.js";
 
 export class RsvpController {
   static async create(req: Request, res: Response) {

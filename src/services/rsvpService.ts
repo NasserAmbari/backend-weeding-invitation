@@ -1,5 +1,5 @@
-import { RsvpModel, Rsvp } from "../models/rsvpModel";
-import { sendTelegramMessage } from "../lib/telegram";
+import { RsvpModel, Rsvp } from "../models/rsvpModel.js";
+import { sendTelegramMessage } from "../lib/telegram.js";
 
 export class RsvpService {
   static async createRsvp(data: Rsvp) {
