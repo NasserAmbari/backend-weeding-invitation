@@ -1,4 +1,3 @@
-import "dotenv/config";
 import cors from "cors";
 import express, { Request, Response, Application } from "express";
 import rsvpRoutes from "./routes/rsvpRoutes.js";
