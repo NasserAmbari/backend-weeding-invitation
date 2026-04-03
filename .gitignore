@@ -8,3 +8,4 @@ node_modules
 src/.DS_Store 
 .env.tmp
 generate-token.ts
+/dist
