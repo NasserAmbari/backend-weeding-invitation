@@ -1,0 +1,18 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model rsvp_message {
+  id        Int      @id @default(autoincrement())
+  fullname  String
+  message   String   
+  attendance String
+  createdAt DateTime @default(now())
+}
