@@ -28,7 +28,10 @@ export class RsvpService {
         `👤 Nama: ${data.fullname}\n` +
         `📋 Kehadiran: ${emoji} ${data.attendance}\n` +
         `💬 Pesan: ${data.message}\n` +
-        `📅 Tanggal: ${new Date().toLocaleDateString()}\n`,
+        `📅 Tanggal: ${new Date().toLocaleString("id-ID", {
+          dateStyle: "full",
+          timeStyle: "medium",
+        })}\n`,
     );
 
     const id = await RsvpModel.create(data);
