@@ -29,8 +29,15 @@ export class RsvpService {
         `📋 Kehadiran: ${emoji} ${data.attendance}\n` +
         `💬 Pesan: ${data.message}\n` +
         `📅 Tanggal: ${new Date().toLocaleString("id-ID", {
-          dateStyle: "full",
-          timeStyle: "medium",
+          timeZone: "Asia/Makassar",
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
         })}\n`,
     );
 
