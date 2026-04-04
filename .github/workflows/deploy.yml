@@ -20,21 +20,17 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            # 1. Pindah ke folder project di server
+            # 1. Load NVM secara manual untuk Non-Interactive Shell
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # 2. Pindah ke folder project
             cd /home/weeding-project/backend-weeding-invitation
 
-            # 2. Tarik kode terbaru dari GitHub
+            # 3. Eksekusi CI/CD
             git pull origin main
-
-            # 3. Update dependencies jika ada package baru
             npm install
-
-            # 4. Sinkronisasi Prisma (Wajib setelah update kode/skema)
             npx prisma generate
             npx prisma migrate deploy
-
-            # 5. Build ulang TypeScript ke JavaScript
             npm run build
-
-            # 6. Restart aplikasi di background tanpa mematikan koneksi (Zero Downtime)
             pm2 reload wedding-api
