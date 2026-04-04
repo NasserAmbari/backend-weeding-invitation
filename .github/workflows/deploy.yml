@@ -1,0 +1,40 @@
+name: Deploy Wedding API Production
+
+# Kapan skrip ini dijalankan?
+on:
+  push:
+    branches:
+      - main # Hanya jalan ketika ada perubahan yang di-push ke branch 'main'
+
+jobs:
+  deploy:
+    name: Deploy to Ubuntu Server
+    runs-on: ubuntu-latest # Robot GitHub berjalan di OS Ubuntu
+
+    steps:
+      - name: Eksekusi Perintah Deployment via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            # 1. Pindah ke folder project di server
+            cd /home/weeding-project/backend-weeding-invitation
+
+            # 2. Tarik kode terbaru dari GitHub
+            git pull origin main
+
+            # 3. Update dependencies jika ada package baru
+            npm install
+
+            # 4. Sinkronisasi Prisma (Wajib setelah update kode/skema)
+            npx prisma generate
+            npx prisma migrate deploy
+
+            # 5. Build ulang TypeScript ke JavaScript
+            npm run build
+
+            # 6. Restart aplikasi di background tanpa mematikan koneksi (Zero Downtime)
+            pm2 reload wedding-api
