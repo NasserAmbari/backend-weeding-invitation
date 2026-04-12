@@ -7,7 +7,7 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_BASE_URL || "http://localhost:3001",
+    origin: "*",
     methods: ["GET", "POST"],
   }),
 );
