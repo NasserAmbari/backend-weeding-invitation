@@ -21,4 +21,14 @@ export class RsvpController {
       res.status(500).json({ success: false, error: "Internal Server Error" });
     }
   }
+
+  static async getSomeData(req: Request, res: Response) {
+    try {
+      const rsvps = await RsvpService.getSomeData();
+      res.status(200).json({ success: true, data: rsvps });
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).json({ success: false, error: "Internal Server Error" });
+    }
+  }
 }

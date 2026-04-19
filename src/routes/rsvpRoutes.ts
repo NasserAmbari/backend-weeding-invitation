@@ -5,6 +5,7 @@ import { authMiddleware } from "../middleware/authMiddleware.js";
 const router = Router();
 
 router.post("/", RsvpController.create);
-router.get("/", authMiddleware, RsvpController.getAll);
+router.get("/", RsvpController.getAll);
+router.get("/somedata", RsvpController.getSomeData);
 
 export default router;

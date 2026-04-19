@@ -27,4 +27,14 @@ export const RsvpModel = {
     });
     return rows as Rsvp[];
   },
+
+  async getSomeData(): Promise<Rsvp[]> {
+    const rows = await prisma.rsvp_message.findMany({
+      take: 10,
+      orderBy: {
+        id: "desc",
+      },
+    });
+    return rows as Rsvp[];
+  },
 };

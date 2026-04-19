@@ -46,7 +46,11 @@ export class RsvpService {
     return { id, ...data };
   }
 
-  static async getAllRsvps() {
+  static async getAllRsvps(): Promise<Rsvp[]> {
     return await RsvpModel.findAll();
+  }
+
+  static async getSomeData() {
+    return await RsvpModel.getSomeData();
   }
 }
