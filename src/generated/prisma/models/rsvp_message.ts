@@ -28,10 +28,12 @@ export type AggregateRsvp_message = {
 
 export type Rsvp_messageAvgAggregateOutputType = {
   id: number | null
+  wedding_id: number | null
 }
 
 export type Rsvp_messageSumAggregateOutputType = {
   id: number | null
+  wedding_id: number | null
 }
 
 export type Rsvp_messageMinAggregateOutputType = {
@@ -39,6 +41,7 @@ export type Rsvp_messageMinAggregateOutputType = {
   fullname: string | null
   message: string | null
   attendance: string | null
+  wedding_id: number | null
   createdAt: Date | null
 }
 
@@ -47,6 +50,7 @@ export type Rsvp_messageMaxAggregateOutputType = {
   fullname: string | null
   message: string | null
   attendance: string | null
+  wedding_id: number | null
   createdAt: Date | null
 }
 
@@ -55,6 +59,7 @@ export type Rsvp_messageCountAggregateOutputType = {
   fullname: number
   message: number
   attendance: number
+  wedding_id: number
   createdAt: number
   _all: number
 }
@@ -62,10 +67,12 @@ export type Rsvp_messageCountAggregateOutputType = {
 
 export type Rsvp_messageAvgAggregateInputType = {
   id?: true
+  wedding_id?: true
 }
 
 export type Rsvp_messageSumAggregateInputType = {
   id?: true
+  wedding_id?: true
 }
 
 export type Rsvp_messageMinAggregateInputType = {
@@ -73,6 +80,7 @@ export type Rsvp_messageMinAggregateInputType = {
   fullname?: true
   message?: true
   attendance?: true
+  wedding_id?: true
   createdAt?: true
 }
 
@@ -81,6 +89,7 @@ export type Rsvp_messageMaxAggregateInputType = {
   fullname?: true
   message?: true
   attendance?: true
+  wedding_id?: true
   createdAt?: true
 }
 
@@ -89,6 +98,7 @@ export type Rsvp_messageCountAggregateInputType = {
   fullname?: true
   message?: true
   attendance?: true
+  wedding_id?: true
   createdAt?: true
   _all?: true
 }
@@ -184,6 +194,7 @@ export type Rsvp_messageGroupByOutputType = {
   fullname: string
   message: string
   attendance: string
+  wedding_id: number
   createdAt: Date
   _count: Rsvp_messageCountAggregateOutputType | null
   _avg: Rsvp_messageAvgAggregateOutputType | null
@@ -215,6 +226,7 @@ export type rsvp_messageWhereInput = {
   fullname?: Prisma.StringFilter<"rsvp_message"> | string
   message?: Prisma.StringFilter<"rsvp_message"> | string
   attendance?: Prisma.StringFilter<"rsvp_message"> | string
+  wedding_id?: Prisma.IntFilter<"rsvp_message"> | number
   createdAt?: Prisma.DateTimeFilter<"rsvp_message"> | Date | string
 }
 
@@ -223,6 +235,7 @@ export type rsvp_messageOrderByWithRelationInput = {
   fullname?: Prisma.SortOrder
   message?: Prisma.SortOrder
   attendance?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _relevance?: Prisma.rsvp_messageOrderByRelevanceInput
 }
@@ -235,6 +248,7 @@ export type rsvp_messageWhereUniqueInput = Prisma.AtLeast<{
   fullname?: Prisma.StringFilter<"rsvp_message"> | string
   message?: Prisma.StringFilter<"rsvp_message"> | string
   attendance?: Prisma.StringFilter<"rsvp_message"> | string
+  wedding_id?: Prisma.IntFilter<"rsvp_message"> | number
   createdAt?: Prisma.DateTimeFilter<"rsvp_message"> | Date | string
 }, "id">
 
@@ -243,6 +257,7 @@ export type rsvp_messageOrderByWithAggregationInput = {
   fullname?: Prisma.SortOrder
   message?: Prisma.SortOrder
   attendance?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.rsvp_messageCountOrderByAggregateInput
   _avg?: Prisma.rsvp_messageAvgOrderByAggregateInput
@@ -259,6 +274,7 @@ export type rsvp_messageScalarWhereWithAggregatesInput = {
   fullname?: Prisma.StringWithAggregatesFilter<"rsvp_message"> | string
   message?: Prisma.StringWithAggregatesFilter<"rsvp_message"> | string
   attendance?: Prisma.StringWithAggregatesFilter<"rsvp_message"> | string
+  wedding_id?: Prisma.IntWithAggregatesFilter<"rsvp_message"> | number
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"rsvp_message"> | Date | string
 }
 
@@ -266,6 +282,7 @@ export type rsvp_messageCreateInput = {
   fullname: string
   message: string
   attendance: string
+  wedding_id: number
   createdAt?: Date | string
 }
 
@@ -274,6 +291,7 @@ export type rsvp_messageUncheckedCreateInput = {
   fullname: string
   message: string
   attendance: string
+  wedding_id: number
   createdAt?: Date | string
 }
 
@@ -281,6 +299,7 @@ export type rsvp_messageUpdateInput = {
   fullname?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   attendance?: Prisma.StringFieldUpdateOperationsInput | string
+  wedding_id?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -289,6 +308,7 @@ export type rsvp_messageUncheckedUpdateInput = {
   fullname?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   attendance?: Prisma.StringFieldUpdateOperationsInput | string
+  wedding_id?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -297,6 +317,7 @@ export type rsvp_messageCreateManyInput = {
   fullname: string
   message: string
   attendance: string
+  wedding_id: number
   createdAt?: Date | string
 }
 
@@ -304,6 +325,7 @@ export type rsvp_messageUpdateManyMutationInput = {
   fullname?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   attendance?: Prisma.StringFieldUpdateOperationsInput | string
+  wedding_id?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -312,6 +334,7 @@ export type rsvp_messageUncheckedUpdateManyInput = {
   fullname?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   attendance?: Prisma.StringFieldUpdateOperationsInput | string
+  wedding_id?: Prisma.IntFieldUpdateOperationsInput | number
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -326,11 +349,13 @@ export type rsvp_messageCountOrderByAggregateInput = {
   fullname?: Prisma.SortOrder
   message?: Prisma.SortOrder
   attendance?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type rsvp_messageAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
 }
 
 export type rsvp_messageMaxOrderByAggregateInput = {
@@ -338,6 +363,7 @@ export type rsvp_messageMaxOrderByAggregateInput = {
   fullname?: Prisma.SortOrder
   message?: Prisma.SortOrder
   attendance?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
@@ -346,19 +372,17 @@ export type rsvp_messageMinOrderByAggregateInput = {
   fullname?: Prisma.SortOrder
   message?: Prisma.SortOrder
   attendance?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type rsvp_messageSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  wedding_id?: Prisma.SortOrder
 }
 
 export type StringFieldUpdateOperationsInput = {
   set?: string
-}
-
-export type DateTimeFieldUpdateOperationsInput = {
-  set?: Date | string
 }
 
 export type IntFieldUpdateOperationsInput = {
@@ -369,6 +393,10 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string
+}
+
 
 
 export type rsvp_messageSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -376,6 +404,7 @@ export type rsvp_messageSelect<ExtArgs extends runtime.Types.Extensions.Internal
   fullname?: boolean
   message?: boolean
   attendance?: boolean
+  wedding_id?: boolean
   createdAt?: boolean
 }, ExtArgs["result"]["rsvp_message"]>
 
@@ -386,10 +415,11 @@ export type rsvp_messageSelectScalar = {
   fullname?: boolean
   message?: boolean
   attendance?: boolean
+  wedding_id?: boolean
   createdAt?: boolean
 }
 
-export type rsvp_messageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullname" | "message" | "attendance" | "createdAt", ExtArgs["result"]["rsvp_message"]>
+export type rsvp_messageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "fullname" | "message" | "attendance" | "wedding_id" | "createdAt", ExtArgs["result"]["rsvp_message"]>
 
 export type $rsvp_messagePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "rsvp_message"
@@ -399,6 +429,7 @@ export type $rsvp_messagePayload<ExtArgs extends runtime.Types.Extensions.Intern
     fullname: string
     message: string
     attendance: string
+    wedding_id: number
     createdAt: Date
   }, ExtArgs["result"]["rsvp_message"]>
   composites: {}
@@ -773,6 +804,7 @@ export interface rsvp_messageFieldRefs {
   readonly fullname: Prisma.FieldRef<"rsvp_message", 'String'>
   readonly message: Prisma.FieldRef<"rsvp_message", 'String'>
   readonly attendance: Prisma.FieldRef<"rsvp_message", 'String'>
+  readonly wedding_id: Prisma.FieldRef<"rsvp_message", 'Int'>
   readonly createdAt: Prisma.FieldRef<"rsvp_message", 'DateTime'>
 }
     

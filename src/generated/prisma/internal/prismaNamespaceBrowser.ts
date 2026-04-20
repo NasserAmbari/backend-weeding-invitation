@@ -75,6 +75,7 @@ export const Rsvp_messageScalarFieldEnum = {
   fullname: 'fullname',
   message: 'message',
   attendance: 'attendance',
+  wedding_id: 'wedding_id',
   createdAt: 'createdAt'
 } as const
 
