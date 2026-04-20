@@ -22,6 +22,11 @@ export const RsvpModel = {
   },
 
   async findAll(weddingId: number): Promise<Rsvp[]> {
+    if (!weddingId || Number.isNaN(weddingId)) {
+      throw new Error(
+        "Parameter weddingId (angka) wajib diberikan untuk findAll",
+      );
+    }
     const rows = await prisma.rsvp_message.findMany({
       where: {
         wedding_id: weddingId,
@@ -34,6 +39,11 @@ export const RsvpModel = {
   },
 
   async getSomeData(weddingId: number): Promise<Rsvp[]> {
+    if (!weddingId || Number.isNaN(weddingId)) {
+      throw new Error(
+        "Parameter weddingId (angka) wajib diberikan untuk getSomeData",
+      );
+    }
     const rows = await prisma.rsvp_message.findMany({
       take: 10,
       where: {

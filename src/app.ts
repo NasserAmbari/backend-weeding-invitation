@@ -18,7 +18,7 @@ app.use(express.json());
 
 // Register Routes
 app.use("/api/auth", authRoutes);
-app.use("/api/rsvp/:id", rsvpRoutesSecond);
+app.use("/api/rsvpSecond/:id", rsvpRoutesSecond);
 app.use("/api/rsvp/", rsvpRoutes);
 
 app.use((req: Request, res: Response) => {
