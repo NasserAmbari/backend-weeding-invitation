@@ -1,9 +1,8 @@
 import { RsvpModel, Rsvp } from "../models/rsvpModelSecond.js";
-import { sendTelegramMessage } from "../lib/telegram.js";
+import { sendTelegramMessage } from "../lib/telegramSecond.js";
 
 export class RsvpServiceSecond {
   static async createRsvp(data: Rsvp, weddingId: number) {
-    console.log(weddingId);
     if (!data.fullname || !data.message || !data.attendance) {
       throw new Error(
         "All fields (fullname, message, attendance) are required.",
@@ -24,23 +23,23 @@ export class RsvpServiceSecond {
           ? "❌"
           : "🤔";
 
-    // await sendTelegramMessage(
-    //   `RSVP Baru!\n\n` +
-    //     `👤 Nama: ${data.fullname}\n` +
-    //     `📋 Kehadiran: ${emoji} ${data.attendance}\n` +
-    //     `💬 Pesan: ${data.message}\n` +
-    //     `📅 Tanggal: ${new Date().toLocaleString("id-ID", {
-    //       timeZone: "Asia/Makassar",
-    //       weekday: "long",
-    //       year: "numeric",
-    //       month: "long",
-    //       day: "numeric",
-    //       hour: "2-digit",
-    //       minute: "2-digit",
-    //       second: "2-digit",
-    //       hour12: false,
-    //     })}\n`,
-    // );
+    await sendTelegramMessage(
+      `RSVP Baru!\n\n` +
+        `👤 Nama: ${data.fullname}\n` +
+        `📋 Kehadiran: ${emoji} ${data.attendance}\n` +
+        `💬 Pesan: ${data.message}\n` +
+        `📅 Tanggal: ${new Date().toLocaleString("id-ID", {
+          timeZone: "Asia/Makassar",
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })}\n`,
+    );
 
     const id = await RsvpModel.create(data, weddingId);
 
